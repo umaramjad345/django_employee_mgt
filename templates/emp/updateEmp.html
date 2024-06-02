@@ -21,7 +21,7 @@
         <div class="col-md-6 offset-md-3">
           <div class="card bg-dark text-white">
             <div class="card-body">
-              <form action="/emp/do-update-emp/{{emp.id}}" method="POST">
+              <form action="/employee/do-update-emp/{{emp.id}}" method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
                   <label for="name">Employee name</label>
