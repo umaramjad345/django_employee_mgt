@@ -31,3 +31,12 @@ def add_emp(request):
         e.save()
         return redirect("/employee/home/")
     return render(request, "emp/addEmp.html", {})
+
+def delete_emp(request, emp_id):
+    emp = Emp.objects.get(id=emp_id)
+    emp.delete()
+    return redirect("/employee/home/")
+
+def update_emp(request, emp_id):
+    print(emp_id)
+    return redirect("/employee/home/")
