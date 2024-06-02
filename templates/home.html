@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div style="max-width: 992px; width: 100%; margin-inline: auto">
+      {% include 'navbar.html' %}
+      <h1 style="text-align: center">Welcome to Our Website</h1>
+
+      <form
+        action="/home/"
+        method="POST"
+        style="
+          max-width: 200px;
+          width: 100%;
+          margin-inline: auto;
+          display: flex;
+          gap: 5px;
+        "
+      >
+        {% csrf_token %}
+        <input
+          type="text"
+          style="
+            padding: 3px;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: rgb(245, 250, 252);
+          "
+          name="value"
+        />
+        <button
+          style="
+            background-color: rgb(38, 252, 18);
+            color: black;
+            padding: 3px 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+          "
+        >
+          Send
+        </button>
+      </form>
+
+      <button style="padding: 7px 13px">Contact Us</button>
+
+      <!-- Dynamic Part -->
+      {% if isActive %}
+      <div>
+        <p>Is User Active : {{isActive}}</p>
+        <h2>Today's Date is {{date}}</h2>
+        <h2>Name of Student is {{name}}</h2>
+        <div style="display: flex; gap: 10px">
+          {% for i in numbers %}
+          <p>{{i}}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <hr />
+      <p style="font-style: italic; font-weight: bold; font-size: 1rem">
+        {{value}}
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>
